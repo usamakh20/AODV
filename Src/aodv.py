@@ -45,21 +45,6 @@ class aodv(threading.Thread):
     
     # Get the port associated with the listener thread for the given node
     def get_listener_thread_port(self, node):
-        port = {'n1':  1000,
-                'n2':  1100,
-                'n3':  1200,
-                'n4':  1300,
-                'n5':  1400,
-                'n6':  1500,
-                'n7':  1600,
-                'n8':  1700,
-                'n9':  1800,
-                'n10': 1900}[node]
-                
-        return port
-
-    # Get the port used to communicate with the listener thread for this node
-    def get_listener_port(self, node):
         port = {'n1':  2000,
                 'n2':  2100,
                 'n3':  2200,
@@ -73,8 +58,8 @@ class aodv(threading.Thread):
                 
         return port
 
-    # Get the port associated with sending and receiving AODV messages
-    def get_aodv_port(self, node):
+    # Get the port used to communicate with the listener thread for this node
+    def get_listener_port(self, node):
         port = {'n1':  3000,
                 'n2':  3100,
                 'n3':  3200,
@@ -85,6 +70,21 @@ class aodv(threading.Thread):
                 'n8':  3700,
                 'n9':  3800,
                 'n10': 3900}[node]
+                
+        return port
+
+    # Get the port associated with sending and receiving AODV messages
+    def get_aodv_port(self, node):
+        port = {'n1':  4000,
+                'n2':  4100,
+                'n3':  4200,
+                'n4':  4300,
+                'n5':  4400,
+                'n6':  4500,
+                'n7':  4600,
+                'n8':  4700,
+                'n9':  4800,
+                'n10': 4900}[node]
                 
         return port
 
@@ -99,7 +99,7 @@ class aodv(threading.Thread):
                 'n7':  5700,
                 'n8':  5800,
                 'n9':  5900,
-                'n10': 6000}[node]
+                'n10': 5000}[node]
                 
         return port
 

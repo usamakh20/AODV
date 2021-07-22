@@ -24,21 +24,6 @@ class listener(threading.Thread):
 
     # Return the listener port associated with the given node
     def get_listener_port(self, node_id):
-        port = {'n1':  1000,
-                'n2':  1100,
-                'n3':  1200,
-                'n4':  1300,
-                'n5':  1400,
-                'n6':  1500,
-                'n7':  1600,
-                'n8':  1700,
-                'n9':  1800,
-                'n10': 1900}[node_id]
-                
-        return port
-    
-    # Return the listener port associated with the given node
-    def get_aodv_listener_port(self, node_id):
         port = {'n1':  2000,
                 'n2':  2100,
                 'n3':  2200,
@@ -49,6 +34,21 @@ class listener(threading.Thread):
                 'n8':  2700,
                 'n9':  2800,
                 'n10': 2900}[node_id]
+                
+        return port
+    
+    # Return the listener port associated with the given node
+    def get_aodv_listener_port(self, node_id):
+        port = {'n1':  3000,
+                'n2':  3100,
+                'n3':  3200,
+                'n4':  3300,
+                'n5':  3400,
+                'n6':  3500,
+                'n7':  3600,
+                'n8':  3700,
+                'n9':  3800,
+                'n10': 3900}[node_id]
                 
         return port
         
@@ -86,7 +86,7 @@ class listener(threading.Thread):
     def add_neighbors(self):
         message_type = "ADD_NEIGHBOR"
         message = message_type + ":" + ""
-        message_bytes = bytes(message, 'utf-8')
+        message_bytes = bytes(message)
         self.send(message_bytes)
         self.wait_for_response()
         
@@ -167,7 +167,7 @@ class listener(threading.Thread):
         
         # Listen indefinitely for user inputs and pass them to the AODV protocol handler thread
         while (True):
-            command = input(prompt)
+            command = raw_input(prompt)
             self.command = command
             
             {'help'             : self.help,

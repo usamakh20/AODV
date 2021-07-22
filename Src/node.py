@@ -27,8 +27,9 @@ class node():
         aodv_thread.start()
 
 # Get the arguments passed by the driver program 
-n = int(sys.argv[1])
-node_id = sys.argv[2]
+i = raw_input("Enter node number: ")
+n = int(i)
+node_id = 'n'+str(i)
 
 # Instantiate the node class and call its main method
 node = node()
